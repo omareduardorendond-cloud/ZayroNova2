@@ -1,0 +1,33 @@
+
+name: Crear APK de ZAYRO NØVA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compilar APK con Flet
+        uses: flet-dev/flet-build-action@v1
+        with:
+          target: apk
+
+      - name: Guardar la APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZayroNova-APK
+          path: build/apk/*.apk
+          if-no-files-found: error
