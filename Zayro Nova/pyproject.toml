@@ -1,0 +1,19 @@
+
+[project]
+name = "zayro-nova"
+version = "1.0.0"
+description = "Aplicación de ventas e inventario de ZAYRO NØVA"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flet==0.86.5",
+]
+
+[tool.flet]
+org = "com.zayronova"
+product = "ZAYRO NØVA"
+company = "ZAYRO NØVA"
+copyright = "Copyright (C) 2026 ZAYRO NØVA"
+
+[tool.flet.app]
+path = "src"
